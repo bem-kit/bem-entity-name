@@ -31,7 +31,7 @@ module.exports = class BemEntityName {
      */
     constructor(obj) {
         if (!obj.block) {
-             throw new Error('This is not valid BEM entity: the field `block` is undefined.');
+             throw new Error(`${JSON.stringify(obj)}\nThis is not valid BEM entity: the field \`block\` is undefined.`);
         }
 
         const data = this._data = { block: obj.block };
@@ -48,7 +48,7 @@ module.exports = class BemEntityName {
                 val: hasModVal ? modObj && modObj.val || obj.modVal : true
             };
         } else if (modObj || hasModVal) {
-            throw new Error('This is not valid BEM entity: the field `mod.name` is undefined.');
+            throw new Error(`${JSON.stringify(obj)}\nThis is not valid BEM entity: the field \`mod.name\` is undefined.`);
         }
 
         this.__isBemEntityName__ = true;
